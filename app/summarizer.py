@@ -23,5 +23,15 @@ prompt = PromptTemplate(
 
 summarization_chain = RunnableSequence(prompt | llm | StrOutputParser())
 
+def get_chain(api_key: str):
+    llm = ChatGroq(model="llama3-8b-8192", api_key=api_key)
+
+    prompt = PromptTemplate(
+        input_variables=["diff"],
+        template="Summarize the following git diff:\n\n{diff}"
+    )
+
+    return RunnableSequence(prompt | llm | StrOutputParser())
+
 def summarize_diff(diff_text: str) -> str:
     return summarization_chain.invoke({"diff": diff_text})
