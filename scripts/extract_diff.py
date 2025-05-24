@@ -3,7 +3,7 @@ import subprocess
 import requests
 import os
 import sys
-
+# Just a test
 def get_latest_diff():
     """Returns the latest commit hash and diff text"""
     commit_hash = subprocess.check_output(
