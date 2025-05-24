@@ -1,0 +1,27 @@
+#version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    env_file:
+      - ../.env
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/summaries
+
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: summaries
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
