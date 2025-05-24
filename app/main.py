@@ -2,7 +2,7 @@ from fastapi import FastAPI, Body, HTTPException ,Request
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse
 
-from app.summarizer import get_chain, summarize_diff
+from app.summarizer import get_chain
 from app.database import SessionLocal
 from app.crud import save_summary
 from pydantic import BaseModel
