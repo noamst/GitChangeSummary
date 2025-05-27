@@ -19,13 +19,18 @@ Deployment: Docker , locally
 CI/CD: GitHub Actions
 
 # Clone repo and enter directory
+```
 git clone https://github.com/yourname/GitChangeSummary.git
 cd GitChangeSummary
-
+```
 # Set up environment
+```
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
+```
 
 # Run local DB (or connect to your own)
+```
 docker-compose up 
+```
